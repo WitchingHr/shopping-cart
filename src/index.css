@@ -8,5 +8,5 @@ body {
 
 #root {
   height: 100vh;
-  background-color: #1b1111;
+  background: linear-gradient(170deg, #324241, #758375);
 }

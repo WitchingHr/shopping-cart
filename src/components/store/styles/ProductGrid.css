@@ -1,6 +1,10 @@
 .ProductGrid {
-  background-color: darkblue;
+  /* background-color: #373744; */
   border-radius: 10px;
   flex: 1;
   height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  overflow: scroll;
 }
