@@ -1,0 +1,31 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  color: white;
+  padding: 0 27px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link,
+.link:visited {
+  color: white;
+}
+
+.cart-button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}

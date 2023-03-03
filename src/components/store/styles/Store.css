@@ -1,0 +1,9 @@
+.store-page {
+
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 25px;
+  margin: 25px;
+}

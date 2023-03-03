@@ -9,7 +9,7 @@ export default function Header() {
           <Link to="/" className="link">Home</Link>
           <Link to="/store" className="link">Store</Link>
         </div>
-        <div>Cart</div>
+        <button className="cart-button">Cart</button>
       </div>
   );
 }

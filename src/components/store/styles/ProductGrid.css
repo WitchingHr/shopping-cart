@@ -1,0 +1,6 @@
+.ProductGrid {
+  background-color: darkblue;
+  border-radius: 10px;
+  flex: 1;
+  height: 85vh;
+}
