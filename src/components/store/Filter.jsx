@@ -7,30 +7,32 @@ export default function Filter() {
 
       <div className="categories">
         <div className="filter-title">Categories</div>
-        <div>
-          <input type="checkbox" id="one" name="one" value="one" />
-          <label for="one">One</label>
-        </div>
-        <div>
-          <input type="checkbox" id="two" name="two" value="two" />
-          <label for="two">Two</label>
-        </div>
-        <div>
-          <input type="checkbox" id="three" name="three" value="three" />
-          <label for="three">Three</label>
-        </div>
-        <div>
-          <input type="checkbox" id="four" name="four" value="four" />
-          <label for="four">Four</label>
-        </div>
-        <div>
-          <input type="checkbox" id="five" name="five" value="five" />
-          <label for="five">Five</label>
+        <div className="checkbox-group">
+          <div className="checkbox-item">
+            <input type="checkbox" id="one" name="one" value="one" />
+            <label htmlFor="one">One</label>
+          </div>
+          <div className="checkbox-item">
+            <input type="checkbox" id="two" name="two" value="two" />
+            <label htmlFor="two">Two</label>
+          </div>
+          <div className="checkbox-item">
+            <input type="checkbox" id="three" name="three" value="three" />
+            <label htmlFor="three">Three</label>
+          </div>
+          <div className="checkbox-item">
+            <input type="checkbox" id="four" name="four" value="four" />
+            <label htmlFor="four">Four</label>
+          </div>
+          <div className="checkbox-item">
+            <input type="checkbox" id="five" name="five" value="five" />
+            <label htmlFor="five">Five</label>
+          </div>
         </div>
       </div>
     
       <div className="price-filter">
-        <div>Price</div>
+        <div className="filter-title">Price</div>
         <div className="price-wrapper">
           <input type="text" className="filter-input" />
           -

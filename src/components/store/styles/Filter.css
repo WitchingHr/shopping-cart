@@ -6,17 +6,55 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  box-shadow: 0px 0px 3px 0 black;
+  margin: 2px;
 }
 
-.categories {
+.categories,
+.price-filter {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  padding: 18px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  gap: 8px;
+  color: rgb(146, 175, 185);
+}
+
+input[type="checkbox"],
+label {
+  cursor: pointer;
 }
 
 .price-wrapper {
   display: flex;
+  gap: 5px;
+  color: rgb(146, 175, 185);
+  align-items: center;
+  justify-content: space-around;
 }
 
 .filter-input {
-  width: 40px;
+  width: 40%;
+  flex: 1;
+  font-size: 24px;
+  background-color: #758375;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
+.filter-title {
+  color: white;
+  font-size: 18px;
 }
