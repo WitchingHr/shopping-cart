@@ -34,9 +34,9 @@ export default function Filter() {
       <div className="price-filter">
         <div className="filter-title">Price</div>
         <div className="price-wrapper">
-          <input type="text" className="filter-input" />
+          <input type="text" className="filter-input" placeholder="1" />
           -
-          <input type="text" className="filter-input" />
+          <input type="text" className="filter-input" placeholder="100" />
         </div>
       </div>
 
