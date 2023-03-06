@@ -10,9 +10,20 @@ export const Context = createContext(null);
 
 export default function RouteSwitch() {
   const [viewCart, setViewCart] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [products, setProducts] = useState([]);
 
   return (
-    <Context.Provider value={{viewCart, setViewCart}}>
+    <Context.Provider
+      value={
+        {
+          viewCart, setViewCart,
+          cart, setCart,
+          filter, setFilter,
+          products, setProducts
+        }
+      }>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

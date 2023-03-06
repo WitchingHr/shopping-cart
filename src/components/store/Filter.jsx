@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../RouteSwitch";
 import "./styles/Filter.css";
 
 export default function Filter() {
+  const {setFilter, products} = useContext(Context);
+
+  function filterByPrice(min, max) {
+    const filtered = products.filter(product => {
+      return product.price >= min && product.price <= max;
+    });
+    setFilter(filtered);
+  }
+
+  function handleClearFilter() {
+    setFilter(products);
+  }
+
   return (
     <div className="filter">
 
@@ -33,12 +47,12 @@ export default function Filter() {
     
       <div className="price-filter">
         <div className="filter-title">Price</div>
-        <div className="price-wrapper">
-          <input type="text" className="filter-input" placeholder="1" />
-          -
-          <input type="text" className="filter-input" placeholder="100" />
-        </div>
       </div>
+
+      <button
+        className="clear-filters"
+        onClick={handleClearFilter}
+      >Clear Filters</button>
 
     </div>
   );

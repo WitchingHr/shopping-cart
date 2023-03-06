@@ -8,7 +8,8 @@
   gap: 10px;
   border-radius: 10px;
   padding: 15px;
-  background-color: #37374474;
+  /* background-color: #37374474; */
+  background-color: #58585874;
   box-shadow: 0px 0px 3px 0 black;
   margin: 2px;
 }
@@ -21,29 +22,44 @@
 
 .product-name {
   color: white;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 div.button-wrapper {
   display: flex;
   gap: 15px;
+  margin-top: auto;
+  align-items: center;
 }
 
 .price {
-  font-size: 24px;
-  color: var(--color-yellow);
+  font-size: 20px;
+  color: #4bc26d;
 }
 
-button.buy-button {
+button.buy {
+  background-color: #ffb600;
   flex: 1;
+  margin: 0 10px;
+}
+
+button.incart {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.button {
   border: none;
   width: 100px;
-  border-radius: 20px;
-  background-color: var(--color-yellow);
-  color: black;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 20px;
   padding: 5px;
-  margin: 0 10px;
   box-shadow: 0px 0px 3px 0 black;
+}
+
+.product-image {
+  width: auto;
+  height: 225px;
+  object-fit: cover;
 }
