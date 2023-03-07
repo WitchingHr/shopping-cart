@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Fragment } from "react";
 import Header from "../common/Header";
 import { Context } from "../../RouteSwitch";
 import './styles/Cart.css';
@@ -23,15 +23,15 @@ export default function Cart() {
       <div className="cart-container">
         <ul className="cart-list">
           {cart.map(product =>
-          <>
-            <CartItem key={product.id} product={product} setTotal={setTotal} />
+          <Fragment key={product.id}>
+            <CartItem product={product} setTotal={setTotal} />
             <hr></hr>
-          </>
+          </Fragment>
           )}
           <div className="cart-checkout-wrapper">
-            <button className="checkout button">Proceed to Checkout</button>
+            <a href="https://github.com/WitchingHr" className="checkout button">Proceed to Checkout</a>
             <span className="cart-total-breakdown">
-              <div className="cart-ship-tax">Tax: ${(Math.round((total * 0.2) * 100) / 100).toFixed(2)}</div>
+              <div className="cart-ship-tax">Tax: ${(Math.round((total * 0.06) * 100) / 100).toFixed(2)}</div>
               <div className="cart-ship-tax">Shipping: $10.00</div>
               <div className="cart-total">Total: ${(Math.round(total * 100) / 100).toFixed(2)}</div>
             </span>

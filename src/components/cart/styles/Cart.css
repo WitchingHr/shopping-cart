@@ -93,6 +93,7 @@ ul.cart-list {
 
 hr {
   width: 100%;
+  border-color: #7d7d7d;
 }
 
 .cart-ship-tax {
@@ -120,9 +121,11 @@ hr {
 
 .checkout {
   background-color: #ffb600;
-  height: 30px;
+  height: 40px;
   width: max-content;
-  padding: 20px;
-  line-height: 0;
+  padding: 0 20px;
+  line-height: 1.9;
   margin-top: auto;
+  color: black;
+  text-decoration: none;
 }

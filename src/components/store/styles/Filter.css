@@ -1,9 +1,8 @@
 .filter {
   height: min-content;
   width: 225px;
-  border-radius: 10px;
-  /* background-color: #37374474; */
-  background-color: #58585874;
+  border-radius: 10px 0;
+  background-color: #00000074;
   display: flex;
   flex-direction: column;
   gap: 25px;

@@ -8,5 +8,6 @@ body {
 
 #root {
   height: 100vh;
-  background: linear-gradient(170deg, #324241, #758375);
+  background: linear-gradient(240deg, #4b2691, #0067e8);
+  overflow: scroll;
 }

@@ -5,6 +5,10 @@
   height: 45px;
   color: white;
   padding: 0 27px;
+  box-shadow: 0px 0px 2px 0 black;
+  background: linear-gradient(240deg, #4b2691, #0067e8);
+  position: sticky;
+  top: 0;
 }
 
 .links {
