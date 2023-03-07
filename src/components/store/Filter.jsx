@@ -1,52 +1,69 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../RouteSwitch";
 import "./styles/Filter.css";
+import Departments from "./Departments";
+import RangeSlider from "./RangeSlider";
 
 export default function Filter() {
-  const {setFilter, products} = useContext(Context);
+  const {filter, setFilter, products} = useContext(Context);
 
-  function filterByPrice(min, max) {
-    const filtered = products.filter(product => {
-      return product.price >= min && product.price <= max;
+  // States for handling selected department
+  const [activeMen, setActiveMen] = useState(false);
+  const [activeWomen, setActiveWomen] = useState(false);
+  const [activeJewel, setActiveJewel] = useState(false);
+  const [activeElec, setActiveElec] = useState(false);
+
+  const states = [
+    {state: activeMen, fn: setActiveMen, category: "men's clothing"},
+    {state: activeWomen, fn: setActiveWomen, category: "women's clothing"},
+    {state: activeJewel, fn: setActiveJewel, category: "jewelery"},
+    {state: activeElec, fn: setActiveElec, category: "electronics"}
+  ];
+
+  function clearActive() {
+    states.forEach(({ state, fn }) => {
+      if (state) {
+        fn(false);
+      }
     });
-    setFilter(filtered);
   }
+
+  const [value, setValue] = useState([1, 1000]);
 
   function handleClearFilter() {
     setFilter(products);
+    clearActive();
+    setValue([0, 1000]);
   }
 
   return (
     <div className="filter">
 
       <div className="categories">
-        <div className="filter-title">Categories</div>
-        <div className="checkbox-group">
-          <div className="checkbox-item">
-            <input type="checkbox" id="one" name="one" value="one" />
-            <label htmlFor="one">One</label>
-          </div>
-          <div className="checkbox-item">
-            <input type="checkbox" id="two" name="two" value="two" />
-            <label htmlFor="two">Two</label>
-          </div>
-          <div className="checkbox-item">
-            <input type="checkbox" id="three" name="three" value="three" />
-            <label htmlFor="three">Three</label>
-          </div>
-          <div className="checkbox-item">
-            <input type="checkbox" id="four" name="four" value="four" />
-            <label htmlFor="four">Four</label>
-          </div>
-          <div className="checkbox-item">
-            <input type="checkbox" id="five" name="five" value="five" />
-            <label htmlFor="five">Five</label>
-          </div>
-        </div>
+        <div className="filter-title">Department</div>
+        <Departments
+          activeMen={activeMen}
+          activeWomen={activeWomen}
+          activeJewel={activeJewel}
+          activeElec={activeElec}
+          setActiveMen={setActiveMen}
+          setActiveWomen={setActiveWomen}
+          setActiveJewel={setActiveJewel}
+          setActiveElec={setActiveElec}
+          states={states}
+        />
       </div>
     
       <div className="price-filter">
         <div className="filter-title">Price</div>
+        <div className="range-container">
+          <RangeSlider
+            setFilter={setFilter} 
+            filter={filter}
+            value={value}
+            setValue={setValue}
+          />
+        </div>
       </div>
 
       <button

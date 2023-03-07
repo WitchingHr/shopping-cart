@@ -28,6 +28,7 @@ ul.modal-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow: scroll;
 }
 
 li.modal-item {
@@ -86,6 +87,7 @@ li.modal-item {
 .go-to-cart {
   width: 100%;
   background-color: #ffb600;
+  color: #753e00;
 }
 
 div.modal-button-wrapper {

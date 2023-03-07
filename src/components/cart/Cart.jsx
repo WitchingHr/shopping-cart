@@ -4,6 +4,7 @@ import { Context } from "../../RouteSwitch";
 import './styles/Cart.css';
 import CartItem from "./CartItem";
 import CartModal from "../store/CartModal";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const {viewCart, cart, setCart} = useContext(Context);
@@ -20,24 +21,33 @@ export default function Cart() {
   return (
     <div>
       <Header />
-      <div className="cart-container">
-        <ul className="cart-list">
-          {cart.map(product =>
-          <Fragment key={product.id}>
-            <CartItem product={product} setTotal={setTotal} />
-            <hr></hr>
-          </Fragment>
-          )}
-          <div className="cart-checkout-wrapper">
-            <a href="https://github.com/WitchingHr" className="checkout button">Proceed to Checkout</a>
-            <span className="cart-total-breakdown">
-              <div className="cart-ship-tax">Tax: ${(Math.round((total * 0.06) * 100) / 100).toFixed(2)}</div>
-              <div className="cart-ship-tax">Shipping: $10.00</div>
-              <div className="cart-total">Total: ${(Math.round(total * 100) / 100).toFixed(2)}</div>
-            </span>
+        {cart.length > 0 ? (
+          <div className="cart-container">
+            <ul className="cart-list">
+              {cart.map(product =>
+              <Fragment key={product.id}>
+                <CartItem product={product} setTotal={setTotal} />
+                <hr></hr>
+              </Fragment>
+              )}
+              <div className="cart-checkout-wrapper">
+                <a href="https://github.com/WitchingHr" className="checkout button">Proceed to Checkout</a>
+                <span className="cart-total-breakdown">
+                  <div className="cart-ship-tax">Tax: ${(Math.round((total * 0.06) * 100) / 100).toFixed(2)}</div>
+                  <div className="cart-ship-tax">Shipping: $10.00</div>
+                  <div className="cart-total">Total: ${(Math.round(total * 100) / 100).toFixed(2)}</div>
+                </span>
+              </div>
+            </ul>
           </div>
-        </ul>
-      </div>
+        ) : (
+          <div className="empty-container">
+            <div className="empty">Cart is empty!</div>
+            <Link to="/store">
+              <button className="button buy continue">Continue Shopping</button>
+            </Link>
+          </div>
+        )}
       {viewCart &&
         <CartModal />
       }
