@@ -10,7 +10,8 @@
   position: absolute;
   top: 35px;
   right: 25px;
-
+  height: min-content;
+  max-height: 50%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -27,7 +28,7 @@ ul.modal-list {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
   overflow: scroll;
 }
 

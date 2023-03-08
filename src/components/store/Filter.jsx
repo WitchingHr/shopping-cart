@@ -5,14 +5,19 @@ import Departments from "./Departments";
 import RangeSlider from "./RangeSlider";
 
 export default function Filter() {
-  const {filter, setFilter, products} = useContext(Context);
+  // Get context
+  const {
+    setFilter, products,
+    deptFilter, setDeptFilter
+  } = useContext(Context);
 
-  // States for handling selected department
+  // States for handling department filter
   const [activeMen, setActiveMen] = useState(false);
   const [activeWomen, setActiveWomen] = useState(false);
   const [activeJewel, setActiveJewel] = useState(false);
   const [activeElec, setActiveElec] = useState(false);
 
+  // State array for iteration
   const states = [
     {state: activeMen, fn: setActiveMen, category: "men's clothing"},
     {state: activeWomen, fn: setActiveWomen, category: "women's clothing"},
@@ -20,6 +25,7 @@ export default function Filter() {
     {state: activeElec, fn: setActiveElec, category: "electronics"}
   ];
 
+  // Clear the bold weight on selected department font
   function clearActive() {
     states.forEach(({ state, fn }) => {
       if (state) {
@@ -28,12 +34,14 @@ export default function Filter() {
     });
   }
 
+  // Slider values
   const [value, setValue] = useState([1, 1000]);
 
+  // Clear filter, reset slider values
   function handleClearFilter() {
-    setFilter(products);
+    setDeptFilter(products);
     clearActive();
-    setValue([0, 1000]);
+    setValue([1, 1000]);
   }
 
   return (
@@ -46,10 +54,6 @@ export default function Filter() {
           activeWomen={activeWomen}
           activeJewel={activeJewel}
           activeElec={activeElec}
-          setActiveMen={setActiveMen}
-          setActiveWomen={setActiveWomen}
-          setActiveJewel={setActiveJewel}
-          setActiveElec={setActiveElec}
           states={states}
         />
       </div>
@@ -59,7 +63,7 @@ export default function Filter() {
         <div className="range-container">
           <RangeSlider
             setFilter={setFilter} 
-            filter={filter}
+            deptFilter={deptFilter}
             value={value}
             setValue={setValue}
           />
@@ -69,7 +73,9 @@ export default function Filter() {
       <button
         className="clear-filters"
         onClick={handleClearFilter}
-      >Clear Filters</button>
+      >
+        Clear Filters
+      </button>
 
     </div>
   );

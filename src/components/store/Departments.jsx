@@ -1,18 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../../RouteSwitch";
 
-export default function Departments(
-  {
+export default function Departments({
     activeMen, activeWomen, activeJewel, activeElec,
-    setActiveMen, setActiveWomen, setActiveJewel, setActiveElec,
-    states
-  }
-) {
+    states}) {
 
-  const {setFilter, products} = useContext(Context);
+  // Get context
+  const {setDeptFilter, products} = useContext(Context);
 
-  // 
-
+  // Set bold font on selected department title
   function handleStates(department) {
     states.forEach(({ state, fn, category}) => {
       if (state) {
@@ -24,11 +20,12 @@ export default function Departments(
     });
   }
 
+  // Filter products by selected department
   function handleClick(department) {
     const filtered = products.filter(product => {
       return product.category === department;
     });
-    setFilter(filtered);
+    setDeptFilter(filtered);
     handleStates(department);
   }
 

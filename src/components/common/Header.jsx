@@ -6,6 +6,7 @@ import "./styles/Header.css"
 export default function Header() {
   const {viewCart, setViewCart} = useContext(Context);
   
+  // Toggle cart modal view
   function handleToggleCart() {
     setViewCart(!viewCart);
   }

@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, Fragment } from "react";
 import { Context } from "../../RouteSwitch";
 import { Link } from "react-router-dom";
 import './styles/CartModal.css';
 
 export default function CartModal() {
+  // Get context
   const {viewCart, setViewCart, cart} = useContext(Context);
 
   // Close modal if clicking outside component
@@ -23,11 +24,12 @@ export default function CartModal() {
   }
   useOutsideClick(cartRef);
 
-  // Closes modal when click Checkout
+  // Close modal when click Checkout
   function handleCheckout() {
     setViewCart(!viewCart);
   }
   
+  // Get total price of items in cart
   const total = cart.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
 
   return (
@@ -41,16 +43,19 @@ export default function CartModal() {
         <>
           <ul className="modal-list">
             {cart.map(product =>
-              <li key={product.id} className="modal-item">
-                <img src={product.image} alt="product" className="modal-image" />
-                <div className="modal-item-info">
-                  <span className="modal-name">{product.title}</span>
-                  <div className="modal-price-wrapper">
-                    <span className="modal-quantity">Quantity: {product.quantity}</span>
-                    <span className="modal-price">${(Math.round((product.price * product.quantity) * 100) / 100).toFixed(2)}</span>
+              <Fragment key={product.id}>
+                <li className="modal-item">
+                  <img src={product.image} alt="product" className="modal-image" />
+                  <div className="modal-item-info">
+                    <span className="modal-name">{product.title}</span>
+                    <div className="modal-price-wrapper">
+                      <span className="modal-quantity">Quantity: {product.quantity}</span>
+                      <span className="modal-price">${(Math.round((product.price * product.quantity) * 100) / 100).toFixed(2)}</span>
+                    </div>
                   </div>
-                </div>
-              </li>
+                </li>
+                <hr></hr>
+              </Fragment>
             )}
           </ul>
           <div className="modal-button-wrapper">

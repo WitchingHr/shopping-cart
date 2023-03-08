@@ -5,17 +5,20 @@ import './styles/ProductCard.css'
 export default function ProductCard({ id, name, price, product }) {
   const {viewCart, setViewCart, cart, setCart} = useContext(Context);
 
+  // Event handler
   function handleClick(product) {
     handleAddToCart(product);
     openCart();
   }
 
+  // Open cart modal
   function openCart() {
     if (!viewCart) {
       setViewCart(!viewCart);
     }
   }
 
+  // Add product to cart
   function handleAddToCart(product) {
     setCart([
       ...cart,

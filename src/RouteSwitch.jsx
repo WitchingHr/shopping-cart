@@ -12,6 +12,7 @@ export default function RouteSwitch() {
   const [viewCart, setViewCart] = useState(false);
   const [cart, setCart] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [deptFilter, setDeptFilter] = useState([]);
   const [products, setProducts] = useState([]);
 
   return (
@@ -21,7 +22,8 @@ export default function RouteSwitch() {
           viewCart, setViewCart,
           cart, setCart,
           filter, setFilter,
-          products, setProducts
+          products, setProducts,
+          deptFilter, setDeptFilter
         }
       }>
       <BrowserRouter>
