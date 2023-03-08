@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../RouteSwitch";
+import { Link } from "react-router-dom";
 import './styles/ProductCard.css'
 
 export default function ProductCard({ id, name, price, product }) {
@@ -35,7 +36,9 @@ export default function ProductCard({ id, name, price, product }) {
   return (
     <div className="ProductCard">
       <img src={product.image} alt="product" className="product-image" />
-      <div className="product-name">{name}</div>
+      <Link to={`/store/${product.id}`} className="product-name-link">
+        <div className="product-name">{name}</div>
+      </Link>
       <div className="button-wrapper">
         <span className="price">${(Math.round(price * 100) / 100).toFixed(2)}</span>
         {cart.some(product => product.id === id) ? (

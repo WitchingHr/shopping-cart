@@ -63,3 +63,7 @@ button.incart {
   height: 225px;
   object-fit: cover;
 }
+
+.product-name-link {
+  text-decoration: none;
+}

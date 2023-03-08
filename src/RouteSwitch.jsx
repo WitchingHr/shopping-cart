@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Store from "./components/store/Store";
 import Cart from "./components/cart/Cart";
+import Item from "./components/store/Item";
 
 export const Context = createContext(null);
 
@@ -29,7 +30,12 @@ export default function RouteSwitch() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/store" element={<Store department="store" />} />
+          <Route path="/store/:id" element={<Item />} />
+          <Route path="/store/mens" element={<Store department="mens" />} />
+          <Route path="/store/womens" element={<Store department="womens" />} />
+          <Route path="/store/jewelery" element={<Store department="jewelery" />} />
+          <Route path="/store/electronics" element={<Store department="electronics" />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

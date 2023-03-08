@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../../RouteSwitch";
 import Header from "../common/Header";
 import './styles/Home.css';
 import { Link } from "react-router-dom";
 import video from '../../assets/video.mp4';
 
 export default function Home() {
+  const {setDeptFilter} = useContext(Context);
+
+  useEffect(() => {
+    setDeptFilter([]);
+  }, []);
+
   return (
     <div className="home-container">
       <Header />
       <div className="home-content">
         <div className="home-banner">
-          <h1 className="home-banner-title">History means forever</h1>
+          <h1 className="home-banner-title">Challenge your limits</h1>
           <p className="home-banner-para">
-            With mantras from our athletes, 
-            our Women's History Month capsule honors 
-            the barriers they've broken - and defiantly 
-            welcomes the future.
+            Challenge is the pathway to engagement and progress in our lives.
           </p>
         </div>
         <div className="home-department-group">
-          <Link to="/store" className="home-department">
+          <Link to="/store/mens" className="home-department">
             <button className="home-department-button">Shop Men's Clothing</button>
           </Link>
-          <Link to="/store" className="home-department">
+          <Link to="/store/womens" className="home-department">
             <button className="home-department-button">Shop Women's Clothing</button>
           </Link>
-          <Link to="/store" className="home-department">
+          <Link to="/store/jewelery" className="home-department">
             <button className="home-department-button">Shop Jewelery</button>
           </Link>
-          <Link to="/store" className="home-department">
+          <Link to="/store/electronics" className="home-department">
             <button className="home-department-button">Shop Electronics</button>
           </Link>
         </div>

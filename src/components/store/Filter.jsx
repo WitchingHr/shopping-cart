@@ -4,7 +4,7 @@ import "./styles/Filter.css";
 import Departments from "./Departments";
 import RangeSlider from "./RangeSlider";
 
-export default function Filter() {
+export default function Filter({ department }) {
   // Get context
   const {
     setFilter, products,
@@ -47,16 +47,18 @@ export default function Filter() {
   return (
     <div className="filter">
 
-      <div className="categories">
-        <div className="filter-title">Department</div>
-        <Departments
-          activeMen={activeMen}
-          activeWomen={activeWomen}
-          activeJewel={activeJewel}
-          activeElec={activeElec}
-          states={states}
-        />
-      </div>
+      {!department && (
+        <div className="categories">
+          <div className="filter-title">Department</div>
+          <Departments
+            activeMen={activeMen}
+            activeWomen={activeWomen}
+            activeJewel={activeJewel}
+            activeElec={activeElec}
+            states={states}
+          />
+        </div>
+      )}
     
       <div className="price-filter">
         <div className="filter-title">Price</div>
