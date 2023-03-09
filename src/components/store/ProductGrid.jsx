@@ -1,7 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../RouteSwitch";
 import ProductCard from "./ProductCard";
 import './styles/ProductGrid.css';
+
+import ProductGridItems from "./ProductGridItems";
+import WithLoading from "./WithLoading";
+const ProductsWithLoading = WithLoading(ProductGridItems);
 
 export default function ProductGrid({ department }) {
   // Get context
@@ -10,6 +14,8 @@ export default function ProductGrid({ department }) {
     deptFilter, setDeptFilter
   } = useContext(Context);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   // Fetch products, set product states
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -17,6 +23,7 @@ export default function ProductGrid({ department }) {
     .then(data => {
       setProducts(data) // All products
       setDeptFilter(data) // For department filter
+      setIsLoading(false);
     })
   }, []);
 
@@ -26,16 +33,9 @@ export default function ProductGrid({ department }) {
   }, [deptFilter]);
 
   return (
-    <div className="ProductGrid">
-      {filter.map((product) =>
-        <ProductCard
-          key={product.id}
-          id={product.id}
-          product={product}
-          name={product.title}
-          price={product.price}
-        />
-      )}
-    </div>
+    <ProductsWithLoading 
+      isLoading={isLoading}
+      filter={filter}
+    />
   );
 }
