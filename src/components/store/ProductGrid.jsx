@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../RouteSwitch";
-import ProductCard from "./ProductCard";
 import './styles/ProductGrid.css';
 
 import ProductGridItems from "./ProductGridItems";
 import WithLoading from "./WithLoading";
 const ProductsWithLoading = WithLoading(ProductGridItems);
 
-export default function ProductGrid({ department }) {
+export default function ProductGrid() {
   // Get context
   const {
     setProducts, filter, setFilter,
