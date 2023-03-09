@@ -27,7 +27,7 @@ export default function RouteSwitch() {
           deptFilter, setDeptFilter
         }
       }>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store department="store" />} />
