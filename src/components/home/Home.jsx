@@ -4,9 +4,10 @@ import Header from "../common/Header";
 import './styles/Home.css';
 import { Link } from "react-router-dom";
 import video from '../../assets/video.mp4';
+import CartModal from "../store/CartModal";
 
 export default function Home() {
-  const {setDeptFilter} = useContext(Context);
+  const {viewCart, setDeptFilter} = useContext(Context);
 
   useEffect(() => {
     setDeptFilter([]);
@@ -45,6 +46,9 @@ export default function Home() {
           <button className="button shop-now">Shop now</button>
         </Link>
       </div>
+      {viewCart &&
+        <CartModal />
+      }
     </div>
   );
 }
