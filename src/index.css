@@ -10,4 +10,5 @@ body {
   height: 100vh;
   background: linear-gradient(240deg, #4b2691, #0067e8);
   overflow: scroll;
+  min-width: 320px;
 }

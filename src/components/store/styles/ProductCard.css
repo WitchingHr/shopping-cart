@@ -67,3 +67,15 @@ button.incart {
 .product-name-link {
   text-decoration: none;
 }
+
+@media only screen and (max-width: 564px) {
+  .product-image {
+    height: 480px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .product-image {
+    height: 225px;
+  }
+}

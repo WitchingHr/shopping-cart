@@ -49,6 +49,7 @@ ul.cart-list {
   background: none;
   border: none;
   margin-left: auto;
+  margin-bottom: auto;
 }
 
 .cart-price-wrapper {
@@ -150,4 +151,22 @@ hr {
   padding: 15px;
   background-color: #58585874;
   box-shadow: 0px 0px 2px 0 black;
+}
+
+@media only screen and (max-width: 570px) {
+  .cart-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cart-item,
+  .cart-checkout-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .checkout {
+    margin-top: 15px;
+    margin-left: auto;
+  }
 }
