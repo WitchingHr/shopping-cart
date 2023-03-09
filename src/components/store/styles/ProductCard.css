@@ -94,10 +94,12 @@ button.incart {
 
 .loading-image {
   height: 225px;
+  animation: shimmer 1s infinite;
 }
 
 .loading-name {
   height: 47px;
+  animation: shimmer 1s 100ms infinite;
 }
 
 .loading-wrapper {
@@ -111,11 +113,13 @@ button.incart {
 .loading-price {
   height: 31px;
   flex: 1;
+  animation: shimmer 1s 200ms infinite;
 }
 
 .loading-button {
   height: 31px;
   flex-grow: 1.5;
+  animation: shimmer 1s 200ms infinite;
 }
 
 .loading-image,
@@ -124,4 +128,14 @@ button.incart {
 .loading-button {
   background-color: #363679;
   border-radius: 5px;
+  transition: 0.5s;
+}
+
+@keyframes shimmer {
+  from {
+    background-color: #6464bbfc;
+  }
+  to {
+    background-color: #363679;
+  }
 }
