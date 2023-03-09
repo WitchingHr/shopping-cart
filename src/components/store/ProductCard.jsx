@@ -36,7 +36,10 @@ export default function ProductCard({ id, name, price, product }) {
   return (
     <div className="ProductCard">
       <img src={product.image} alt="product" className="product-image" />
-      <Link to={`/store/${product.id}`} className="product-name-link">
+      <Link
+        to={`/store/${product.id}`}
+        state={{product: product}}
+        className="product-name-link">
         <div className="product-name">{name}</div>
       </Link>
       <div className="button-wrapper">

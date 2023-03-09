@@ -82,3 +82,9 @@ label {
   display: flex;
   justify-content: center;
 }
+
+.filter-department-name {
+  color: white;
+  font-size: 22px;
+  padding: 18px;
+}

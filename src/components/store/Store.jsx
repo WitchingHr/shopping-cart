@@ -17,7 +17,7 @@ export default function Store({ department }) {
         <div className="content-wrapper">
           {department !== "store" ? (
             <>
-              <Filter department="true" />
+              <Filter department={department} />
               <ProductGridDepartment department={department} />
             </>
           ) : (

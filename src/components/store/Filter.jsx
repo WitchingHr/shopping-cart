@@ -44,6 +44,24 @@ export default function Filter({ department }) {
     setValue([1, 1000]);
   }
 
+  let departmentName;
+  switch (department) {
+    case 'mens':
+      departmentName = "Men's Clothing";
+      break;
+    case 'womens':
+      departmentName = "Women's Clothing";
+      break;
+    case 'jewelery':
+      departmentName = "Jewelery";
+      break;
+    case 'electronics':
+      departmentName = "Electronics";
+      break;
+    default:
+      break;
+  }
+
   return (
     <div className="filter">
 
@@ -57,6 +75,12 @@ export default function Filter({ department }) {
             activeElec={activeElec}
             states={states}
           />
+        </div>
+      )}
+
+      {department && (
+        <div className="filter-department-name">
+          {departmentName}
         </div>
       )}
     
