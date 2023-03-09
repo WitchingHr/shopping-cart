@@ -20,6 +20,7 @@
   background-color: #172e71;
   box-shadow: 0px 0px 3px 0 black;
   margin: 2px;
+  z-index: 2;
 }
 
 ul.modal-list {
