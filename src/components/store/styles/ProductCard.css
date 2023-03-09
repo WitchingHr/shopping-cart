@@ -79,3 +79,49 @@ button.incart {
     height: 225px;
   }
 }
+
+.ProductCardLoading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px 0;
+  padding: 15px;
+  background-color: #00000074;
+  box-shadow: 0px 0px 3px 0 black;
+  margin: 2px;
+  height: 325px;
+}
+
+.loading-image {
+  height: 225px;
+}
+
+.loading-name {
+  height: 47px;
+}
+
+.loading-wrapper {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  align-items: center;
+  height: 31px;
+}
+
+.loading-price {
+  height: 31px;
+  flex: 1;
+}
+
+.loading-button {
+  height: 31px;
+  flex-grow: 1.5;
+}
+
+.loading-image,
+.loading-name,
+.loading-price,
+.loading-button {
+  background-color: #363679;
+  border-radius: 5px;
+}
